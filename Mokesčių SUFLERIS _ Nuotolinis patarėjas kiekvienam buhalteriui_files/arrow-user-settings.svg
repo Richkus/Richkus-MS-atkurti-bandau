@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="8px" viewBox="0 0 12 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>43445AC2-EA98-470C-B78A-8AB7544373B7</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M11.3029322,2.83342056 C11.4838966,3.01438497 11.5958254,3.26438497 11.5958254,3.54052734 L11.5958254,10.5405273 C11.5958254,11.0928121 11.1481102,11.5405273 10.5958254,11.5405273 C10.0435407,11.5405273 9.59582545,11.0928121 9.59582545,10.5405273 L9.59582545,4.54052734 L3.59582545,4.54052734 C3.0435407,4.54052734 2.59582545,4.09281209 2.59582545,3.54052734 C2.59582545,2.98824259 3.0435407,2.54052734 3.59582545,2.54052734 L10.5958254,2.54052734 C10.8719678,2.54052734 11.1219678,2.65245616 11.3029322,2.83342056 Z" id="path-1"></path>
+    </defs>
+    <g id="Vartotojo-Nustatymai_unsubscribe_(production)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Nustatymai_atnaujintas_atidaryti" transform="translate(-912.000000, -315.000000)">
+            <g id="Group-4" transform="translate(281.420508, 296.187500)">
+                <g id="Icon/Arrow/Down-Copy" transform="translate(629.214844, 12.065063)">
+                    <g transform="translate(0.332031, 0.895136)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="Oval" fill="#FFFFFF" fill-rule="nonzero" transform="translate(7.095825, 7.040527) rotate(-225.000000) translate(-7.095825, -7.040527) " xlink:href="#path-1"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
