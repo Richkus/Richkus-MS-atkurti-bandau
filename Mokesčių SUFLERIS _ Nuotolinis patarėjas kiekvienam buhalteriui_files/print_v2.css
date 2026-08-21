@@ -1,0 +1,197 @@
+@media print {
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-size: 13px;
+        font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+        color: #405359;
+        background: #fff !important;
+    }
+
+    .ms-content {
+        position: absolute;
+    }
+
+    #content_main {
+        margin: 0 !important;
+    }
+    .ms-footer {
+        margin: 0 !important;
+    }
+
+    #content {
+        padding-top: 15px!important;
+        margin: 0 !important;
+    }
+
+    h1 { font-size: 24px; }
+    h2 { font-size: 20px; }
+
+    .no-print, .paywall, .modal, .modal-backdrop, .ms-footer, #new_comment, .ms-logo-wrapper, .ms-header-wrapper, .ms-sidebar {
+        display: none !important;
+    }
+
+    .only-print { display: block; }
+
+    input, textarea, submit {
+        display: none !important;
+    }
+
+    #browser_warning, #logo, #navigation, .sub_navigation, #left_column, #search_widget, .action_links, #footer, #sub_navigation_left, #sub_navigation_right, #navigation_with_title {
+        display: none !important;
+    }
+
+    #user_widget, .btn, .sf-toolbarreset {
+        display: none !important;
+    }
+
+    /* removes the href value following the link */
+    a[href]:after {
+        content: none !important;
+    }
+
+    @page {
+        margin-left: 5%;
+    }
+
+    hr {
+        background-color: #DBE0E0 !important;
+    }
+
+    .search-data {
+        display: flex;
+        justify-items: left;
+        align-items: left;
+        padding: 5px 0px 30px 0px;
+        font-size: 15px;
+        color: #354547;
+    }
+
+    .search-data > span > #result-term {
+        font-weight: bold;
+        display: inline-block;
+        color: #354547;
+    }
+
+    .search-data > span > #result-count {
+        font-weight: bold;
+        display: inline-block;
+        color: #354547;
+    }
+
+    .result-title > a {
+        color: #219DA5 !important;
+        font-size: 15px !important;
+    }
+
+    .single-result-wrapper {
+        padding: 0% !important;
+        margin: 0% !important;
+    }
+
+    .single-result-wrapper > .result {
+        padding: 0% !important;
+        margin: 0% !important;
+        min-height: 105px !important;
+        border-bottom: none !important;
+    } 
+
+    .result-summary {
+        color: #405359 !important;
+    }
+
+    .result-retails {
+        color: #89999C !important;
+    }
+
+    .main-results {
+        margin: 0 !important;
+    }
+
+    .ms-content-wrapper {
+        margin: 0 !important;
+    }
+
+    .right_column {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+    }
+
+    #print_warning {
+        width: 780px;
+    }
+
+    #print_warning > h1 {
+        font-size: 15px !important;
+        color: #354547 !important;
+        margin: 15px 0 !important;
+        padding-top: 10px !important;
+        padding-bottom: 0px !important;
+        border-top: 3px solid #DBE0E0;
+    }
+
+    .print_warning {
+        border-bottom: 1px solid #DBE0E0;
+        margin-left: 40px;
+        margin-bottom: 0px;
+        width: 780px;
+    }
+
+    .bottom_line {
+        border-top: 1px solid #DBE0E0 !important;
+    }
+
+    .search-page {
+        min-height: calc(100vh - 380px) !important;
+    }
+
+    .theme-results {
+        background-color: #E9EFEF !important;
+        border: 0.8px solid #DBE0E0;
+    }
+
+    .theme-results-header {
+        color: #354547 !important;
+    }
+
+    .theme-results-content{
+        background-color: #E9EFEF !important;
+        grid-template-columns: none !important;
+        grid-gap: 2px !important;
+        margin-bottom: 20px !important;
+    }
+
+    .theme-results-content > .result {
+        background-color: #E9EFEF !important;
+        box-shadow: none !important;
+        min-height: 10px !important;
+        padding: 0% !important;
+    }
+
+    .search-page {
+        padding: 0% !important;
+    }
+
+    p > .only-print {
+        color: red !important; 
+        display: inline !important;
+    }
+
+    .single-result-wrapper > .result {
+        grid-template-columns: [content-start] 1fr [content-end] !important;
+    }
+
+    .footer {
+        color: #89999C;
+        font-size: 15px;
+    }
+
+    .footer > a {
+        color: #219DA5;
+    }
+
+    .print_warning {
+        display: flex;
+    }
+}
