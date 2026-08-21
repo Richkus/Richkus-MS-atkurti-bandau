@@ -1,0 +1,95 @@
+---
+import navItems from '../../data/nav.json'
+---
+
+<aside class="sidebar" data-app-sidebar>
+  <a href="/" class="sidebar__logo" aria-label="Pradžia">SUFLERIS</a>
+  <nav class="sidebar__nav" aria-label="Pagrindinė navigacija">
+    <ul class="sidebar__list">
+      {
+        navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class={`sidebar__link ${item.active ? 'sidebar__link--active' : ''}`}
+            >
+              <span>{item.label}</span>
+              {item.badge && <span class="sidebar__badge">{item.badge}</span>}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</aside>
+
+<style>
+  .sidebar {
+    grid-area: sidebar;
+    width: var(--sidebar-width);
+    background: var(--color-primary-dark);
+    color: var(--color-text-inverse);
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-4) 0;
+    overflow-y: auto;
+  }
+
+  .sidebar__logo {
+    display: block;
+    padding: 0 var(--space-4) var(--space-4);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-inverse);
+    letter-spacing: 0.04em;
+  }
+  .sidebar__logo:hover {
+    text-decoration: none;
+    color: var(--color-text-inverse);
+  }
+
+  .sidebar__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-4);
+    color: rgba(255, 255, 255, 0.85);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    border-left: 3px solid transparent;
+  }
+  .sidebar__link:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--color-text-inverse);
+    text-decoration: none;
+  }
+
+  .sidebar__link--active {
+    background: rgba(255, 255, 255, 0.1);
+    border-left-color: var(--color-accent);
+    color: var(--color-text-inverse);
+  }
+
+  .sidebar__badge {
+    font-size: var(--font-size-xs);
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-full);
+    padding: 0 var(--space-2);
+  }
+
+  @media (max-width: 1024px) {
+    .sidebar {
+      position: fixed;
+      inset: 0 auto 0 0;
+      z-index: 20;
+      transform: translateX(-100%);
+      transition: transform 0.2s ease;
+    }
+  }
+</style>

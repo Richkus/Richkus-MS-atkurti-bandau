@@ -1,0 +1,13 @@
+[
+  { "label": "Šiandien SUFLERYJE", "href": "/", "active": true },
+  { "label": "Mokesčių naujienos", "href": "/naujienos", "badge": "37" },
+  { "label": "Praktinės situacijos", "href": "/praktines-situacijos", "badge": "14 589" },
+  { "label": "Sąvadai ir teminiai rinkiniai", "href": "/savadai" },
+  { "label": "Seminarai ir vaizdo įrašai", "href": "/seminarai" },
+  { "label": "Renginių kalendorius", "href": "/kalendorius" },
+  { "label": "Skaičiuoklės", "href": "/skaiciuokles" },
+  { "label": "Testai", "href": "/testai" },
+  { "label": "Tinklalaidės", "href": "/tinklalaides" },
+  { "label": "Trumpai", "href": "/trumpai" },
+  { "label": "Užduokite klausimą", "href": "/klausimai/nauja" }
+]

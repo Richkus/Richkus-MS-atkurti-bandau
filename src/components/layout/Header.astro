@@ -1,0 +1,119 @@
+---
+---
+
+<header class="header">
+  <div class="header__search">
+    <input
+      type="search"
+      class="header__search__input"
+      placeholder="Ieškoti pagal frazę"
+      aria-label="Paieška"
+    />
+  </div>
+
+  <div class="header__actions">
+    <a class="header__actions__link" href="/kontaktai">Susisiekti</a>
+    <a class="header__actions__link" href="/planai">Kainos ir planai</a>
+    <details class="header__user">
+      <summary class="header__user__trigger">Audrius</summary>
+      <div class="header__user__menu">
+        <a href="/mano-sufleris">Mano SUFLERIS</a>
+        <a href="/nustatymai">Nustatymai</a>
+      </div>
+    </details>
+  </div>
+</header>
+
+<style>
+  .header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    height: var(--header-height);
+    padding: 0 var(--space-5);
+    background: var(--color-background);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .header__search {
+    flex: 1;
+    max-width: 360px;
+  }
+
+  .header__search__input {
+    width: 100%;
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-sm);
+    background: var(--color-surface);
+    color: var(--color-text);
+  }
+
+  .header__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    position: relative;
+  }
+
+  .header__actions__link {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+    white-space: nowrap;
+  }
+  .header__actions__link:hover {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .header__user__trigger {
+    cursor: pointer;
+    list-style: none;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary-dark);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface);
+  }
+  .header__user__trigger::-webkit-details-marker {
+    display: none;
+  }
+
+  .header__user__menu {
+    position: absolute;
+    right: 0;
+    top: calc(100% + var(--space-2));
+    display: flex;
+    flex-direction: column;
+    min-width: 180px;
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    padding: var(--space-2);
+    z-index: 10;
+  }
+
+  .header__user__menu a {
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+    font-size: var(--font-size-sm);
+  }
+  .header__user__menu a:hover {
+    background: var(--color-surface);
+    text-decoration: none;
+  }
+
+  @media (max-width: 640px) {
+    .header__search {
+      display: none;
+    }
+  }
+</style>

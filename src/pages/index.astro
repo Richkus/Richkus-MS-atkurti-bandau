@@ -1,0 +1,37 @@
+---
+import AppShell from '../layouts/AppShell.astro'
+import PageHeader from '../components/ui/PageHeader.astro'
+import Card from '../components/ui/Card.astro'
+import cards from '../data/homepage-cards.json'
+---
+
+<AppShell title="Šiandien SUFLERYJE">
+  <PageHeader
+    title="Šiandien SUFLERYJE"
+    description="Pirmas šio UI karkaso panaudojimas — vizualinė referencija į originalią svetainę, bet moduliniai komponentai."
+  />
+
+  <section class="section" aria-labelledby="weekly-heading">
+    <h2 id="weekly-heading" class="section__title">Šią savaitę kolegos domisi</h2>
+    <div class="card-grid">
+      {cards.map((card) => <Card {...card} />)}
+    </div>
+  </section>
+</AppShell>
+
+<style>
+  .section {
+    margin-bottom: var(--space-7);
+  }
+
+  .section__title {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-4);
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--space-4);
+  }
+</style>

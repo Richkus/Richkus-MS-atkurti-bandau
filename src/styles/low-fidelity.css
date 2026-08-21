@@ -1,0 +1,36 @@
+/*
+  Low Fidelity Mode — perrašo TIK spalvų tokenus į monochrome tonus.
+  Spacing, typography, radius, shadows ir struktūra išlieka nepakitę,
+  todėl gaunamas profesionalus wireframe vaizdas, ne "sugadintas" puslapis.
+
+  Aktyvuojamas per html[data-fidelity="low"] atributą (žr. low-fidelity-toggle.js).
+*/
+
+html[data-fidelity='low'] {
+  --color-primary: #6b6b6b;
+  --color-primary-hover: #575757;
+  --color-primary-dark: #4a4a4a;
+  --color-primary-darker: #3a3a3a;
+
+  --color-background: #ffffff;
+  --color-surface: #f2f2f2;
+  --color-surface-alt: #e6e6e6;
+
+  --color-text: #2b2b2b;
+  --color-text-muted: #8a8a8a;
+  --color-text-inverse: #ffffff;
+
+  --color-border: #cccccc;
+  --color-border-strong: #b3b3b3;
+
+  --color-accent: #999999;
+
+  --color-danger: #7a7a7a;
+  --color-success: #7a7a7a;
+  --color-warning: #7a7a7a;
+  --color-info: #7a7a7a;
+}
+
+html[data-fidelity='low'] img:not([data-keep-color]) {
+  filter: grayscale(100%);
+}
