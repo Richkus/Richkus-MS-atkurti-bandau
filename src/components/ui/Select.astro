@@ -1,0 +1,49 @@
+---
+interface Option {
+  value: string
+  label: string
+}
+
+interface Props {
+  id: string
+  label: string
+  options: Option[]
+  name?: string
+}
+
+const { id, label, options, name = id } = Astro.props
+---
+
+<div class="field">
+  <label class="field__label" for={id}>{label}</label>
+  <select class="field__input" id={id} name={name}>
+    {options.map((opt) => <option value={opt.value}>{opt.label}</option>)}
+  </select>
+</div>
+
+<style>
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .field__label {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+  }
+
+  .field__input {
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+    background: var(--color-background);
+  }
+  .field__input:focus-visible {
+    border-color: var(--color-primary);
+  }
+</style>

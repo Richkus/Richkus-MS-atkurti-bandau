@@ -1,0 +1,38 @@
+---
+interface Props {
+  label?: string
+}
+
+const { label = 'Kraunama...' } = Astro.props
+---
+
+<div class="loading-state" role="status">
+  <span class="loading-state__spinner" aria-hidden="true"></span>
+  <span class="loading-state__label">{label}</span>
+</div>
+
+<style>
+  .loading-state {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-6);
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+  }
+
+  .loading-state__spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--color-border);
+    border-top-color: var(--color-primary);
+    border-radius: var(--radius-full);
+    animation: loading-state-spin 0.7s linear infinite;
+  }
+
+  @keyframes loading-state-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>

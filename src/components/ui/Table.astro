@@ -1,0 +1,92 @@
+---
+interface Column {
+  key: string
+  label: string
+  align?: 'left' | 'right' | 'center'
+}
+
+interface Props {
+  columns: Column[]
+  rows: Record<string, unknown>[]
+}
+
+const { columns, rows } = Astro.props
+---
+
+<div class="table-wrapper">
+  <table class="table">
+    <thead>
+      <tr>
+        {
+          columns.map((col) => (
+            <th class={`table__cell--${col.align ?? 'left'}`}>{col.label}</th>
+          ))
+        }
+      </tr>
+    </thead>
+    <tbody>
+      {
+        rows.map((row) => (
+          <tr>
+            {columns.map((col) => (
+              <td class={`table__cell--${col.align ?? 'left'}`}>{String(row[col.key] ?? '')}</td>
+            ))}
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+  {rows.length === 0 && <p class="table__empty">Duomenų nėra.</p>}
+</div>
+
+<style>
+  .table-wrapper {
+    overflow-x: auto;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+  }
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--font-size-sm);
+  }
+
+  .table th,
+  .table td {
+    padding: var(--space-3) var(--space-4);
+    border-bottom: 1px solid var(--color-border);
+    white-space: nowrap;
+  }
+
+  .table th {
+    background: var(--color-surface);
+    color: var(--color-text-muted);
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+    font-size: var(--font-size-xs);
+    letter-spacing: 0.02em;
+  }
+
+  .table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .table tbody tr:hover {
+    background: var(--color-surface);
+  }
+
+  .table__cell--right {
+    text-align: right;
+  }
+  .table__cell--center {
+    text-align: center;
+  }
+
+  .table__empty {
+    padding: var(--space-4);
+    color: var(--color-text-muted);
+    text-align: center;
+    margin: 0;
+  }
+</style>

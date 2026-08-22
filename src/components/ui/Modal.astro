@@ -1,0 +1,78 @@
+---
+interface Props {
+  id: string
+  title: string
+}
+
+const { id, title } = Astro.props
+---
+
+<dialog id={id} class="modal">
+  <div class="modal__header">
+    <h2 class="modal__title">{title}</h2>
+    <button type="button" class="modal__close" data-modal-close aria-label="Uždaryti">×</button>
+  </div>
+  <div class="modal__body">
+    <slot />
+  </div>
+</dialog>
+
+<script>
+  document.querySelectorAll('dialog.modal').forEach((dialog) => {
+    if (dialog.getAttribute('data-modal-init')) return
+    dialog.setAttribute('data-modal-init', 'true')
+
+    dialog.querySelectorAll('[data-modal-close]').forEach((btn) => {
+      btn.addEventListener('click', () => dialog.close())
+    })
+
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) dialog.close()
+    })
+  })
+</script>
+
+<style>
+  .modal {
+    border: none;
+    border-radius: var(--radius-md);
+    padding: 0;
+    width: min(480px, calc(100vw - var(--space-6)));
+    box-shadow: var(--shadow-lg);
+  }
+
+  .modal::backdrop {
+    background: rgba(0, 0, 0, 0.45);
+  }
+
+  .modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-4) var(--space-5);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .modal__title {
+    margin: 0;
+    font-size: var(--font-size-lg);
+  }
+
+  .modal__close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: var(--font-size-xl);
+    line-height: 1;
+    color: var(--color-text-muted);
+  }
+  .modal__close:hover {
+    color: var(--color-text);
+  }
+
+  .modal__body {
+    padding: var(--space-5);
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+  }
+</style>
