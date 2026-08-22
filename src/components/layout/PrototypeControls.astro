@@ -1,0 +1,43 @@
+---
+---
+
+<div class="prototype-controls">
+  <label class="prototype-controls__toggle">
+    <input type="checkbox" id="low-fidelity-toggle" />
+    <span>Low Fidelity Mode</span>
+  </label>
+</div>
+
+<script>
+  import { getFidelity, setFidelity } from '../../scripts/prototype-state.js'
+
+  const checkbox = document.getElementById('low-fidelity-toggle')
+  if (checkbox instanceof HTMLInputElement) {
+    checkbox.checked = getFidelity() === 'low'
+    checkbox.addEventListener('change', () => {
+      setFidelity(checkbox.checked ? 'low' : 'normal')
+    })
+  }
+</script>
+
+<style>
+  .prototype-controls {
+    grid-area: controls;
+    display: flex;
+    align-items: center;
+    height: var(--prototype-controls-height);
+    padding: 0 var(--space-5);
+    background: var(--color-primary-darker);
+    color: var(--color-text-inverse);
+  }
+
+  .prototype-controls__toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    cursor: pointer;
+    user-select: none;
+  }
+</style>

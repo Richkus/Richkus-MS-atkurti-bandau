@@ -1,0 +1,74 @@
+---
+import Badge from './Badge.astro'
+
+interface Props {
+  title: string
+  summary?: string
+  date?: string
+  tag?: string
+  readTime?: string
+  href?: string
+}
+
+const { title, summary, date, tag, readTime, href } = Astro.props
+const TitleTag = href ? 'a' : 'span'
+---
+
+<article class="card">
+  {tag && <Badge tone="muted">{tag}</Badge>}
+  <h3 class="card__title">
+    <TitleTag href={href} class="card__title__link">{title}</TitleTag>
+  </h3>
+  {summary && <p class="card__summary">{summary}</p>}
+  {
+    (date || readTime) && (
+      <div class="card__meta">
+        {date && <span>{date}</span>}
+        {date && readTime && <span class="card__meta__sep">|</span>}
+        {readTime && <span>{readTime}</span>}
+      </div>
+    )
+  }
+</article>
+
+<style>
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-4);
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    height: 100%;
+  }
+
+  .card__title {
+    margin: 0;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-tight);
+  }
+
+  .card__title__link {
+    color: var(--color-text);
+  }
+  .card__title__link:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+
+  .card__summary {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    flex: 1;
+  }
+
+  .card__meta {
+    display: flex;
+    gap: var(--space-2);
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+  }
+</style>

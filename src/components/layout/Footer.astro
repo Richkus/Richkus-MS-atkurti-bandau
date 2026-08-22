@@ -1,0 +1,64 @@
+---
+---
+
+<footer class="footer">
+  <details class="footer__section">
+    <summary>Apie mus</summary>
+    <ul>
+      <li><a href="/apie-mus">Apie SUFLERĮ</a></li>
+      <li><a href="/komanda">Komanda</a></li>
+      <li><a href="/karjera">Karjera</a></li>
+    </ul>
+  </details>
+  <details class="footer__section">
+    <summary>Susisiekti</summary>
+    <ul>
+      <li><a href="/pagalbos-centras">Pagalbos centras</a></li>
+      <li><a href="/kontaktai">Kontaktai</a></li>
+    </ul>
+  </details>
+  <p class="footer__legal">
+    Prototipas — vidinis UI karkasas, nesusietas su gamybine sistema. ·
+    <a href="/komponentai">UI komponentų katalogas</a>
+  </p>
+</footer>
+
+<style>
+  .footer {
+    grid-area: footer;
+    padding: var(--space-6) var(--space-5);
+    border-top: 1px solid var(--color-border);
+    background: var(--color-surface);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-6);
+  }
+
+  .footer__section summary {
+    cursor: pointer;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary-dark);
+    margin-bottom: var(--space-2);
+  }
+
+  .footer__section ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .footer__section a {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+  }
+  .footer__section a:hover {
+    color: var(--color-primary);
+  }
+
+  .footer__legal {
+    width: 100%;
+    margin: 0;
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+  }
+</style>

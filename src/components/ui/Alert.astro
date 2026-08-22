@@ -1,0 +1,90 @@
+---
+interface Props {
+  variant?: 'info' | 'success' | 'warning' | 'danger'
+  title?: string
+  dismissible?: boolean
+}
+
+const { variant = 'info', title, dismissible = false } = Astro.props
+---
+
+<div class={`alert alert--${variant}`} role="alert" data-alert>
+  <div class="alert__body">
+    {title && <p class="alert__title">{title}</p>}
+    <div class="alert__content"><slot /></div>
+  </div>
+  {
+    dismissible && (
+      <button type="button" class="alert__close" data-alert-close aria-label="Uždaryti pranešimą">
+        ×
+      </button>
+    )
+  }
+</div>
+
+{
+  dismissible && (
+    <script>
+      document.querySelectorAll('[data-alert]').forEach((alertEl) => {
+        const closeBtn = alertEl.querySelector('[data-alert-close]')
+        closeBtn?.addEventListener('click', () => alertEl.remove())
+      })
+    </script>
+  )
+}
+
+<style>
+  .alert {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+    font-size: var(--font-size-sm);
+  }
+
+  .alert__title {
+    margin: 0 0 var(--space-1) 0;
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .alert__content {
+    color: inherit;
+  }
+
+  .alert__close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: var(--font-size-lg);
+    line-height: 1;
+    color: inherit;
+    opacity: 0.6;
+  }
+  .alert__close:hover {
+    opacity: 1;
+  }
+
+  .alert--info {
+    background: #e6f7fb;
+    border-color: #b6e6f0;
+    color: #0b6577;
+  }
+  .alert--success {
+    background: #e8f6ee;
+    border-color: #bfe6cf;
+    color: #146c3f;
+  }
+  .alert--warning {
+    background: #fff8e6;
+    border-color: #f0deab;
+    color: #8a6b06;
+  }
+  .alert--danger {
+    background: #fbe9eb;
+    border-color: #f0bcc2;
+    color: #a1222f;
+  }
+</style>

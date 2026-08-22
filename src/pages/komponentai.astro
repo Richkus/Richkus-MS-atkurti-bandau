@@ -1,0 +1,170 @@
+---
+import AppShell from '../layouts/AppShell.astro'
+import PageHeader from '../components/ui/PageHeader.astro'
+import Breadcrumbs from '../components/ui/Breadcrumbs.astro'
+import Button from '../components/ui/Button.astro'
+import Badge from '../components/ui/Badge.astro'
+import Card from '../components/ui/Card.astro'
+import Alert from '../components/ui/Alert.astro'
+import Table from '../components/ui/Table.astro'
+import Tabs from '../components/ui/Tabs.astro'
+import Modal from '../components/ui/Modal.astro'
+import Pagination from '../components/ui/Pagination.astro'
+import EmptyState from '../components/ui/EmptyState.astro'
+import LoadingState from '../components/ui/LoadingState.astro'
+import Input from '../components/ui/Input.astro'
+import Select from '../components/ui/Select.astro'
+
+const sampleColumns = [
+  { key: 'name', label: 'Pavadinimas' },
+  { key: 'status', label: 'Būsena' },
+  { key: 'date', label: 'Data', align: 'right' as const },
+]
+
+const sampleRows = [
+  { name: 'Testas: PVM tarifai', status: 'Aktyvus', date: '2026-08-01' },
+  { name: 'Testas: Darbo santykiai', status: 'Juodraštis', date: '2026-07-28' },
+]
+---
+
+<AppShell title="UI Komponentų katalogas">
+  <Breadcrumbs items={[{ label: 'Pradžia', href: '/' }, { label: 'Komponentai' }]} />
+  <PageHeader
+    title="UI Komponentų katalogas"
+    description="Gyvas visų karkaso reusable komponentų pavyzdys — naudokite jį kaip referenciją kurdami naujus vidinius puslapius."
+  />
+
+  <section class="demo-section">
+    <h2>Buttons</h2>
+    <div class="demo-row">
+      <Button variant="primary">Primary</Button>
+      <Button variant="secondary">Secondary</Button>
+      <Button variant="ghost">Ghost</Button>
+      <Button variant="primary" size="sm">Small</Button>
+    </div>
+  </section>
+
+  <section class="demo-section">
+    <h2>Badges</h2>
+    <div class="demo-row">
+      <Badge tone="primary">Nauja</Badge>
+      <Badge tone="muted">Atmintinė</Badge>
+    </div>
+  </section>
+
+  <section class="demo-section">
+    <h2>Alerts</h2>
+    <div class="demo-stack">
+      <Alert variant="info" title="Informacija">Šis pranešimas informuoja apie naują funkciją.</Alert>
+      <Alert variant="success" title="Pavyko">Veiksmas sėkmingai atliktas.</Alert>
+      <Alert variant="warning" title="Įspėjimas">Patikrinkite įvestus duomenis.</Alert>
+      <Alert variant="danger" title="Klaida" dismissible>Nepavyko išsaugoti — bandykite dar kartą.</Alert>
+    </div>
+  </section>
+
+  <section class="demo-section">
+    <h2>Cards</h2>
+    <div class="demo-grid">
+      <Card
+        title="Pavyzdinė kortelė"
+        summary="Trumpas aprašymas, kuris parodo, kaip Card komponentas atvaizduoja turinį."
+        date="2026-08-20"
+        tag="PAVYZDYS"
+        readTime="3 min."
+        href="#"
+      />
+      <Card title="Kortelė be santraukos" tag="TRUMPA" />
+    </div>
+  </section>
+
+  <section class="demo-section">
+    <h2>Forms</h2>
+    <div class="demo-grid">
+      <Input id="demo-input" label="Įmonės pavadinimas" placeholder="UAB Pavyzdys" helpText="Kaip nurodyta registre." />
+      <Select
+        id="demo-select"
+        label="Mokestinis laikotarpis"
+        options={[
+          { value: '2026', label: '2026 m.' },
+          { value: '2025', label: '2025 m.' },
+        ]}
+      />
+    </div>
+  </section>
+
+  <section class="demo-section">
+    <h2>Table</h2>
+    <Table columns={sampleColumns} rows={sampleRows} />
+  </section>
+
+  <section class="demo-section">
+    <h2>Tabs</h2>
+    <Tabs tabs={[{ id: 'apzvalga', label: 'Apžvalga' }, { id: 'istorija', label: 'Istorija' }]}>
+      <p slot="apzvalga">Apžvalgos skirtuko turinys.</p>
+      <p slot="istorija">Istorijos skirtuko turinys.</p>
+    </Tabs>
+  </section>
+
+  <section class="demo-section">
+    <h2>Modal</h2>
+    <Button id="open-demo-modal">Atidaryti langą</Button>
+    <Modal id="demo-modal" title="Pavyzdinis modalas">
+      <p>Modal komponentas naudoja native <code>&lt;dialog&gt;</code> elementą.</p>
+    </Modal>
+    <script>
+      document
+        .getElementById('open-demo-modal')
+        ?.addEventListener('click', () => {
+          const modal = document.getElementById('demo-modal')
+          if (modal instanceof HTMLDialogElement) modal.showModal()
+        })
+    </script>
+  </section>
+
+  <section class="demo-section">
+    <h2>Pagination</h2>
+    <Pagination currentPage={2} totalPages={5} hrefFor={(page) => `?page=${page}`} />
+  </section>
+
+  <section class="demo-section">
+    <h2>Empty state</h2>
+    <EmptyState title="Įrašų nerasta" description="Pakeiskite paieškos kriterijus arba filtrus.">
+      <Button variant="secondary" size="sm">Išvalyti filtrus</Button>
+    </EmptyState>
+  </section>
+
+  <section class="demo-section">
+    <h2>Loading state</h2>
+    <LoadingState label="Kraunami duomenys..." />
+  </section>
+</AppShell>
+
+<style>
+  .demo-section {
+    margin-bottom: var(--space-7);
+  }
+
+  .demo-section h2 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-4);
+  }
+
+  .demo-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    align-items: center;
+  }
+
+  .demo-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .demo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: var(--space-4);
+  }
+</style>
